@@ -15,8 +15,6 @@
   import { defineComponent } from "vue";
 
   import Btn from "../components/Btn.vue";
-  import OutlinedBtn from "../components/Btn.vue";
-  import UseBorder from "../components/UseBorder.vue";
   import {self,Room} from "../reactivity/game";
 
   import {

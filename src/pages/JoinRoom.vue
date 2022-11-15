@@ -14,7 +14,6 @@
 <script setup lang="ts">
   import { toRefs } from "vue";
 
-  import UseBorder from "../components/UseBorder.vue";
   import Btn from "../components/Btn.vue";
   import {Room,self} from "../reactivity/game"
 
