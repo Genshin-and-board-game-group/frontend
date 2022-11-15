@@ -28,7 +28,7 @@
   .btn {
     cursor: pointer;
     display: inline-block;
-    .Entrance {
+    .Icon {
       img {
         width: 100%;
       }
@@ -68,11 +68,6 @@
       opacity: 0.7;
       background-image: url("/assets/img/border_recording.png");
       background-size: 100% 100%;
-    }
-    .x {
-      img {
-        width: 100%;
-      }
     }
     .Rule {
       .content {
