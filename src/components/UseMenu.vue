@@ -2,11 +2,6 @@
   <div class="use-menu">
     <UseBorder>
       <slot></slot>
-      <img
-        @click=onCancel()
-        class="cancel"
-        :src="`/assets/close.svg`"
-      />
     </UseBorder>
   </div>
 </template>
@@ -57,5 +52,6 @@
         background-color: transparent;
       }
     }
+    z-index: 5;
   }
 </style>

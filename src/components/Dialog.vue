@@ -1,5 +1,6 @@
 <template>
   <UseMenu
+    @click="dialogTimeLeft = 0"
     v-show="dialogTimeLeft > 0"
     :onCancel="() => (dialogTimeLeft = 0)"
   >
@@ -8,9 +9,6 @@
         class="content"
         v-html="content && content.content"
       ></span>
-      <div @click="dialogTimeLeft = 0" class="confirm">
-        确认({{ dialogTimeLeft }}s)
-      </div>
     </div>
   </UseMenu>
 </template>
