@@ -13,7 +13,7 @@
   import { ref } from "vue";
   import Btn from "./Btn.vue";
 
-  var show = ref(false);
+  var show = ref(true);
 
   const showRule = () => {
     show.value = true;
@@ -65,14 +65,24 @@
     }
     .return {
       position: absolute;
+<<<<<<< HEAD
       width: calc(12/100*var(--width));
       height: calc(6/100*var(--height));
       margin-bottom: 2em;
+=======
+      width: calc(1/16*var(--width));
+      height: calc(1/16*var(--height));
+      margin-bottom: 1em;
+>>>>>>> a728968 (Rule)
       font-size: calc(30/1000*var(--height));
       bottom: 0px;
       padding: 1em;
       cursor: pointer;
+<<<<<<< HEAD
       color: #5A8375;
+=======
+      color: #B1BC94;
+>>>>>>> a728968 (Rule)
       z-index: 9999;
     }
   }

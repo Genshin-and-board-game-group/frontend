@@ -30,7 +30,11 @@
   
   const number = Room.value.roomNumber;
   const canBegin = computed(()=>players.value.length >= 5);
+<<<<<<< HEAD
   const refRule = ref<any>(null);
+=======
+  const refRule = ref(null);
+>>>>>>> a728968 (Rule)
   
   
 </script>
