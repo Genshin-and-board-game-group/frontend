@@ -5,23 +5,17 @@
 </template>
 
 <script setup lang="ts">
-import Btn from "../components/Btn.vue";
-import Intros from "../components/Intros.vue";
+	import Btn from "../components/Btn.vue";
+
 </script>
 
 <style lang="scss" scoped>
-.introductions {
-	position: absolute;
-	width: var(--width);
-  	height: var(--height);
-}
-
-.waitroom_btn_return {
-	cursor: pointer;
-	position: absolute;
-	top: calc(5/100*var(--height));
-	left: calc(5/100*var(--height));
-	width: calc(10/100*var(--height));
-	z-index: 2;
-}
+	.waitroom_btn_return {
+		cursor: pointer;
+		position: absolute;
+		top:calc(5/100*var(--height));
+		left: calc(5/100*var(--height));
+		width: calc(10/100*var(--height));
+		z-index: 2;
+	}
 </style>
