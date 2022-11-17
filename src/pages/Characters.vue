@@ -10,12 +10,18 @@
 </script>
 
 <style lang="scss" scoped>
-	.waitroom_btn_return {
-		cursor: pointer;
-		position: absolute;
-		top:calc(5/100*var(--height));
-		left: calc(5/100*var(--height));
-		width: calc(10/100*var(--height));
-		z-index: 2;
-	}
+.tmp {
+	position: absolute;
+	width: var(--width);
+  	height: var(--height);
+}
+
+.waitroom_btn_return {
+	cursor: pointer;
+	position: absolute;
+	top: calc(5/100*var(--height));
+	left: calc(5/100*var(--height));
+	width: calc(10/100*var(--height));
+	z-index: 2;
+}
 </style>
