@@ -34,15 +34,15 @@
     justify-content: space-between;
     align-items: center;
     word-break: break-word;
-    background-image: url("../../public/assets/img/Dialog.png");
+    background-image: url("../../public/assets/img/ruler/ruler_border.png");
     background-size: 100% 100%;
     z-index: 9999;
     position: fixed;
-    width: calc(1/2*var(--width));
-    height: calc(1/2*var(--height));
+    width: calc(70/100*var(--height)*2048/1080);
+    height: calc(70/100*var(--height));
     top: 46vh;
-    margin-top: calc(-1/4*var(--height));
-    left: calc(1/4*var(--width));
+    margin-top: calc(-35/100*var(--height));
+    left: 15vw;
     .content{
       position: absolute;
       width: calc(1/4*var(--width));
@@ -65,14 +65,14 @@
     }
     .return {
       position: absolute;
-      width: calc(1/16*var(--width));
-      height: calc(1/16*var(--height));
-      margin-bottom: 1em;
+      width: calc(12/100*var(--width));
+      height: calc(6/100*var(--height));
+      margin-bottom: 2em;
       font-size: calc(30/1000*var(--height));
       bottom: 0px;
       padding: 1em;
       cursor: pointer;
-      color: #B1BC94;
+      color: #5A8375;
       z-index: 9999;
     }
   }
