@@ -18,8 +18,9 @@
 				</Avatar>
 				<div class="name">{{item.name}}</div>
 				<div v-if="item.leader" class="leader-icon">队长</div>
-				<div v-if="Room.isVoting" class="player-voted">
-					{{item.voted?"已投票":"未投票"}}
+				<div v-if="Room.isVoting">
+					<img :src="`/assets/img/thinking.png`" v-if="!item.voted" class="player-voted"/>
+					<img :src="`/assets/img/check.png`" v-else class="player-voted"/>
 				</div>
 				<!-- <div v-if="item.inTeam" class="player-inTeam">已选中</div> -->
 				<div v-if="item.hint" class="player-hint">{{showHint(item)}}</div>
@@ -131,9 +132,10 @@ let List = computed(()=>{
 			}
 			.player-voted{
 				position: absolute;
-				right: 0px;
-				bottom: 0px;
-				color: greenyellow;
+				// height: 100%;
+				right: calc(-28/1000*var(--width));
+				top: calc(-10/1000*var(--width));
+				width: calc(3/100*var(--width));
 			}
 			.player-hint{
 				position: absolute;
