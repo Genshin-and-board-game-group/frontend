@@ -7,8 +7,9 @@
 				<Avatar v-if="item.index===self.index" class="myavatar" :character="item.avatar?item.avatar:'empty'"></Avatar>
 				<Avatar v-else class="avatar" :character="item.avatar"></Avatar>
 				<div class="name">{{item.name}}</div>
-				<div v-if="Room.isVoting" class="mission_voted">
-					{{item.voted?"✔️":"..."}}
+				<div v-if="Room.isVoting">
+					<img :src="`/assets/img/thinking.png`" v-if="!item.voted" class="mission_voted"/>
+					<img :src="`/assets/img/check.png`" v-else class="mission_voted"/>
 				</div>
 			</div>
 		</div>
@@ -120,9 +121,9 @@ function voteMission(res : boolean){
 			justify-content: space-around;
 			.mission_voted{
 				position: absolute;
-				right: 0px;
-				bottom: 0px;
-				color: greenyellow;
+				right: calc(-28/1000*var(--width));
+				top: calc(-10/1000*var(--width));
+				width: calc(3/100*var(--width));
 			}
 			.avatar ,.myavatar{
 				position: relative;
