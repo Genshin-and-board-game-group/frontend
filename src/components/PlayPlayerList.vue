@@ -7,10 +7,12 @@
 		>
 			<div v-if="item.avatar">
 				<Avatar v-if="item.index===self.index" class="myavatar" :character="item.avatar?item.avatar:'empty'">
+					<div v-if="item.inTeam" class="inTeam"></div>
 					<div v-if="canSelect" @click="select(item.index)" class="select-btn"></div>
 					<div v-if="canChoose" @click="fairyInspect(item.index)" class="select-btn"></div>
 				</Avatar>
 				<Avatar v-else class="avatar" :character="item.avatar">
+					<div v-if="item.inTeam" class="inTeam"></div>
 					<div v-if="canSelect" @click="select(item.index)" class="select-btn"></div>
 					<div v-if="canChoose" @click="fairyInspect(item.index)" class="select-btn"></div>
 				</Avatar>
@@ -19,7 +21,7 @@
 				<div v-if="Room.isVoting" class="player-voted">
 					{{item.voted?"已投票":"未投票"}}
 				</div>
-				<div v-if="item.inTeam" class="player-inTeam">已选中</div>
+				<!-- <div v-if="item.inTeam" class="player-inTeam">已选中</div> -->
 				<div v-if="item.hint" class="player-hint">{{showHint(item)}}</div>
 				<div v-if="item.isFairy" class="fairy-icon">虚空</div>
 			</div>
@@ -154,7 +156,16 @@ let List = computed(()=>{
 			.avatar ,.myavatar{
 				position: relative;
 				width: 100%;
-				border-radius: 50%;
+				// border-radius: 50%;
+				.inTeam {
+					top: 0px;
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					border: 4px solid #F0F4CC;
+					box-sizing: border-box;
+					border-radius: 50%;
+				}
 				.select-btn{
 					cursor: pointer;
 					top: 0px;
