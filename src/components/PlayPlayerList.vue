@@ -7,19 +7,22 @@
 		>
 			<div v-if="item.avatar">
 				<Avatar v-if="item.index===self.index" class="myavatar" :character="item.avatar?item.avatar:'empty'">
+					<div v-if="item.inTeam" class="inTeam"></div>
 					<div v-if="canSelect" @click="select(item.index)" class="select-btn"></div>
 					<div v-if="canChoose" @click="fairyInspect(item.index)" class="select-btn"></div>
 				</Avatar>
 				<Avatar v-else class="avatar" :character="item.avatar">
+					<div v-if="item.inTeam" class="inTeam"></div>
 					<div v-if="canSelect" @click="select(item.index)" class="select-btn"></div>
 					<div v-if="canChoose" @click="fairyInspect(item.index)" class="select-btn"></div>
 				</Avatar>
 				<div class="name">{{item.name}}</div>
 				<div v-if="item.leader" class="leader-icon">队长</div>
-				<div v-if="Room.isVoting" class="player-voted">
-					{{item.voted?"已投票":"未投票"}}
+				<div v-if="Room.isVoting">
+					<img :src="`/assets/img/thinking.png`" v-if="!item.voted" class="player-voted"/>
+					<img :src="`/assets/img/check.png`" v-else class="player-voted"/>
 				</div>
-				<div v-if="item.inTeam" class="player-inTeam">已选中</div>
+				<!-- <div v-if="item.inTeam" class="player-inTeam">已选中</div> -->
 				<div v-if="item.hint" class="player-hint">{{showHint(item)}}</div>
 				<div v-if="item.isFairy" class="fairy-icon">虚空</div>
 			</div>
@@ -129,9 +132,10 @@ let List = computed(()=>{
 			}
 			.player-voted{
 				position: absolute;
-				right: 0px;
-				bottom: 0px;
-				color: greenyellow;
+				// height: 100%;
+				right: calc(-28/1000*var(--width));
+				top: calc(-10/1000*var(--width));
+				width: calc(3/100*var(--width));
 			}
 			.player-hint{
 				position: absolute;
@@ -154,7 +158,16 @@ let List = computed(()=>{
 			.avatar ,.myavatar{
 				position: relative;
 				width: 100%;
-				border-radius: 50%;
+				// border-radius: 50%;
+				.inTeam {
+					top: 0px;
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					border: 4px solid #F0F4CC;
+					box-sizing: border-box;
+					border-radius: 50%;
+				}
 				.select-btn{
 					cursor: pointer;
 					top: 0px;
