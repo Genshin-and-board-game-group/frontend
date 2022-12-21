@@ -13,7 +13,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="mission_progressbar"></div>
+		<div class="mission_progressbar">
+			<div class="span"></div>
+		</div>
 		<div class="mission_text">
 			<div class="text">{{ missions[Room.currentRound] }}</div>
 			<img :src="`/assets/img/mission/next.png`" class="next"/>
@@ -38,10 +40,16 @@ import { gsap } from 'gsap';
 
 onMounted(() => {
 	gsap.fromTo(".text", {
-		opacity: 0,
+		width: 0,
 	}, {
-		opacity: 1,
+		width: "100%",
 		duration: 3
+	})
+	gsap.fromTo(".span", {
+		width: "100%",
+	}, {
+		width: 0,
+		duration: 30,
 	})
 })
 
@@ -101,9 +109,12 @@ function voteMission(res : boolean){
 		align-items: center;
 		justify-content: space-around;
 		.text{
+			position: absolute;
 			height: calc(5/100*var(--height));
 			font-size: calc(4/100*var(--height));
 			letter-spacing: calc(1/100*var(--height));
+			left: calc(3/100*var(--width));
+			bottom: calc(10/100*var(--height));
 			color: blanchedalmond;
 			overflow: hidden;
 		}
@@ -120,7 +131,13 @@ function voteMission(res : boolean){
 		height: calc(1/100*var(--height));
 		width: calc(50/100*var(--width));
 		bottom: calc(10/100*var(--height));
-		background-color: #D9A359;
+		background-color: #BBBBBB;
+		.span{
+			position: relative;
+			height: 100%;
+			width: 60%;
+			background-color: #D9A359;
+		}
 	}
 	.mission_vote_bottons{
 		position: absolute;
