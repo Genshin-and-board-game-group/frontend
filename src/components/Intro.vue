@@ -2,10 +2,9 @@
     <div class="intro">
         <div class="image">
             <img class="ima" :src="`/assets/tachie/${character.toLowerCase()}.png`" alt="character" />
-            <img class="border" :src="'/assets/img/characters_border.png'" alt="border" />
         </div>
         <div class="name">
-            <p>{{ name }}</p>
+            {{ name }}
         </div>
         <p class="text"> {{ text }} </p>
     </div>
@@ -34,12 +33,12 @@ const text = computed(
 
 <style lang="scss" scoped>
 .intro {
+    display: inline-block;
+    position: relative;
     height: 100%;
     width: 25%;
-
     .image {
         height: 60%;
-        margin-bottom: 10%;
         display: flex;
         overflow: hidden;
         justify-content: center;
@@ -49,31 +48,25 @@ const text = computed(
             width: auto;
             position: relative;
         }
-
-        .border {
-            height: auto;
-            width: 100%;
-            position: absolute;
-        }
     }
     .name {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 10%;
+        margin-block: 5%;
+        font-size: calc(16/1000*var(--width));
+        color: #5A8375;
         background-image: url("/assets/img/characters_label.png");
         background-size: 100% 100%;
-        margin-bottom: 15%;
-        // height: 10%; // 设定高度会有bug
-        padding-block: 8%;
-        text-align: center;
-        p {
-            color: #5A8375;
-        }
+        
     }
-
     .text {
-        overflow: scroll;
-        height: 35%;
-        margin: 0 auto;
+        height: 20%;
         color: white;
         line-height: 150%;
+        font-size: calc(16/1000*var(--width));
+        overflow: scroll;
     }
 }
 </style>
