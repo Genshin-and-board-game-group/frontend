@@ -33,8 +33,13 @@ onMounted(() => {
 
 .introductions {
 	position: absolute;
-	width: var(--width);
-	height: var(--height);
+	margin: auto;
+	left: 0%;
+	right: 0%;
+	top: 0%;
+	bottom: 0%;
+	width: calc(90/100*var(--width));
+	height: calc(80/100*var(--height));
 	z-index: 2;
 }
 
