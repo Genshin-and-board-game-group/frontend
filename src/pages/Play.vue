@@ -19,7 +19,7 @@
 			<GenshinBtnVue class="playroom-vote-button" @click="voteTeam(false)" content="投票反对" theme="light" type="x"></GenshinBtnVue>
 		</div>
 		<GenshinBtnVue v-if="(self.leader && !Room.isVoting && successNumber<3 && !fairyChoosing)" class="playroom-confirm-team" @click="confirmTeam()" content="确认组队方案" theme="light" type="o"></GenshinBtnVue>
-		<div class="test-buttons" v-if="isDev">
+		<div class="test-buttons" v-if="isDev" v-show="false">
 			<p>本地调试用（不用注释）</p>
 			<GenshinBtnVue class="test-button" content="设为队长" @click="self.leader=true;" theme="dark" type="o"></GenshinBtnVue>
 			<GenshinBtnVue class="test-button" content="取消队长" @click="self.leader=false;" theme="dark" type="x"></GenshinBtnVue>
