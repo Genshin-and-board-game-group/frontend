@@ -23,7 +23,10 @@
 					<img :src="`/assets/img/check.png`" v-else class="player-voted"/>
 				</div>
 				<!-- <div v-if="item.inTeam" class="player-inTeam">已选中</div> -->
-				<div v-if="item.hint" class="player-hint">{{showHint(item)}}</div>
+				<div v-if="item.hint">
+					<div class="player-hint">{{showHint(item)}}</div>
+					<img :src="`/assets/img/hint_border.png`" class="hint_border"/>
+				</div>
 				<div v-if="item.isFairy" class="fairy-icon">虚空</div>
 			</div>
 			<div v-else>
@@ -138,10 +141,14 @@ let List = computed(()=>{
 				width: calc(3/100*var(--width));
 			}
 			.player-hint{
-				position: absolute;
-				left: 0px;
-				bottom: 0px;
+				position: relative;
+				font-size: calc(10/1000*var(--width));
+				// left: 0px;
+				// bottom: 0px;
 				color: blueviolet;
+			}
+			.hint_border{
+				width: 100%;
 			}
 			.player-inTeam{
 				position: absolute;

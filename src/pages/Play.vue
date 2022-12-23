@@ -153,7 +153,7 @@ onMounted(() => {
 			z-index: 2;
 		}
 		.playroom-task{
-			top: calc(55/100*var(--height));
+			top: calc(60/100*var(--height));
 			left: calc(20/100*var(--width));
 		}
 		.playroom_bg {
