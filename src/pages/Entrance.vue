@@ -59,7 +59,7 @@ onMounted(async () => {
     });
     pm2.on('frame', () => {
       if (pm2.currentFrameNumber == 5) {
-        if (loaded)
+        if (loaded.value == true)
           pm2.stop();
       }
     })

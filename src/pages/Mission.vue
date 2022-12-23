@@ -16,8 +16,8 @@
 		<div class="mission_progressbar">
 			<div class="span"></div>
 		</div>
-		<div class="mission_text">
-			<div class="text">{{ missions[Room.currentRound] }}</div>
+		<div class="mission_text" @click="nextText">
+			<div class="text">{{ missions[Room.currentRound][textNum] }}</div>
 			<img :src="`/assets/img/mission/next.png`" class="next"/>
 		</div>
 		<div v-if="(Room.isVoting && self.inTeam && !self.voted)" class="mission_vote_bottons">
@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from 'vue';
+import { computed, onMounted, Ref, ref } from 'vue';
 import { PublicPlayerDef } from '../../shared/ModelDefs';
 import Avatar from '../components/Avatar.vue';
 import Chat from '../components/Chat.vue';
@@ -37,6 +37,8 @@ import GenshinBtn from '../components/GenshinBtn.vue';
 import { players, Room, self } from '../reactivity/game';
 import { socket } from '../socket';
 import { gsap } from 'gsap';
+
+const textNum: Ref<number> = ref(0);
 
 onMounted(() => {
 	gsap.fromTo(".text", {
@@ -52,13 +54,17 @@ onMounted(() => {
 		duration: 30,
 	})
 })
-
 const missions = [
-	"穿越烟帷与暗林",
-	"千朵玫瑰带来的黎明",
-	"迷梦与空幻与欺骗",
-	"赤土之王与三朝圣者",
-	"虚空鼓动，劫火高扬"
+	["穿越烟帷与暗林", "「烟香纱帷一朝落，世间不复你与我。」", "须弥城坐落在雨林之间，被古树与水泽环绕。", 
+		"由此向西行进，则将步入尘沙的领域。", "其间种种秘密，皆藏于细雨与飞沙之中。"],
+	["千朵玫瑰带来的黎明", "「纵使梦醒时分有玫瑰千朵，可昨日之蔷薇已无处寻。」", "在山峦采撷映满眼帘的绿意，",
+		"在平野细嗅随处可见的蔷薇。", "色彩瑰丽的小鸟在黎明欢笑，", "笑声中吐露沉寂百年的智慧。"],
+	["迷梦与空幻与欺骗", "「世界现状，环宇的一切——都是迷梦、空幻与欺骗。」"],
+	["赤土之王与三朝圣者", "「我乃赤土之王，功业盖世，诸强折服！」", "曾经号令砂砾的王被沙土掩埋，",
+		"曾经隔断砂砾的壁被沙土冲刷。", "如今，沉匿的古迹即将迎接新的来客…", "并为他们呈现，古旧的真相。"],
+	["虚空鼓动，劫火高扬", "「树王骨血，草神肝心。彼日虚空不转，劫灰落定，往事成书。」",
+		"汇聚教令院六大学派之力的秘密项目，即将抵达最关键的尾声。", "耗费了如此多的成本、时间与精力，定能有所收获。",
+		"但结果是否如其所愿，则未必掌握在他们的手中…"]
 ];
 
 let List = computed(()=>{
@@ -70,6 +76,19 @@ let List = computed(()=>{
 	}
 	return copyedList;
 })
+
+function nextText() {
+	if(textNum.value < missions[Room.value.currentRound].length - 1) {
+		textNum.value++;
+		gsap.fromTo(".text", {
+			width: 0,
+		}, {
+			width: "100%",
+			duration: 3
+		})
+	}
+	
+}
 
 function voteMission(res : boolean){
 	socket.send({
@@ -112,10 +131,10 @@ function voteMission(res : boolean){
 			position: absolute;
 			height: calc(5/100*var(--height));
 			font-size: calc(4/100*var(--height));
-			letter-spacing: calc(1/100*var(--height));
+			letter-spacing: calc(8/1000*var(--height));
 			left: calc(3/100*var(--width));
 			bottom: calc(10/100*var(--height));
-			color: blanchedalmond;
+			color: rgb(255, 255, 255);
 			overflow: hidden;
 		}
 		.next{
