@@ -41,11 +41,12 @@ import { CharacterIntro, ChineseNames } from "../../shared/GameDefs";
 import PlayPlayerList from "../components/PlayPlayerList.vue";
 import TasksVue from "../components/Tasks.vue";
 import Assassinate from "../components/Assassinate.vue";
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import Chat from "../components/Chat.vue";
 import GenshinBtnVue from "../components/GenshinBtn.vue";
 import { socket } from "../socket";
 import { fairyChoosing } from "../reactivity/play"
+import { gsap } from 'gsap';
 
 const refAssassinate = ref<any>(null);
 let isDev = import.meta.env.DEV ? true : false;
@@ -67,6 +68,15 @@ let successNumber = computed(()=>{
 	let x=0;
 	for(let item of Room.value.taskResult)x+=(item===1)?1:0;
 	return x;
+})
+
+onMounted(() => {
+	gsap.fromTo(".playroom", {
+		opacity: 0,
+	}, {
+		opacity: 1,
+		duration: 0.5,
+	})
 })
 </script>
 
