@@ -68,10 +68,11 @@ defineExpose({ showRule })
 
   .content {
     position: absolute;
-    width: 90%;
-    height: 90%;
+    width: 85%;
+    height: 85%;
     font-size: calc(45/1000*var(--height));
-    color: #B6AB97;
+    letter-spacing: calc(5/1000*var(--height));
+    color: white;
     top: calc(0.3*var(--height));
     text-align: center;
     z-index: 9999;
