@@ -1,6 +1,11 @@
 <template>
   <div class="rule-content" v-show="show">
-    <span class="content" v-html="content"></span>
+    <!-- <span class="content" v-html="content"></span> -->
+    <p class="content">
+      游戏规则
+      <br/><br/>
+      游戏分为教令院阵营和旅行者阵营，双方将共同完成五轮任务，并在任务中完成各自阵营的目标。教令院的任务目标是创造新神，旅行者阵营则致力于阻止教令院的造神计划。
+    </p>
     <Btn class="return" @click="hideRule" type="Rule" content="返回" />
     <div class="rule_background"></div>
   </div>
@@ -67,11 +72,12 @@ defineExpose({ showRule })
 
   .content {
     position: absolute;
-    width: calc(1/4*var(--width));
-    height: calc(1/16*var(--height));
+    width: 85%;
+    height: 85%;
     font-size: calc(45/1000*var(--height));
-    color: #B6AB97;
-    top: calc(0.3*var(--height));
+    letter-spacing: calc(5/1000*var(--height));
+    color: white;
+    top: calc(0.2*var(--height));
     text-align: center;
     z-index: 9999;
     overflow-y: auto;

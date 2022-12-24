@@ -47,6 +47,7 @@ import GenshinBtnVue from "../components/GenshinBtn.vue";
 import { socket } from "../socket";
 import { fairyChoosing } from "../reactivity/play"
 import { gsap } from 'gsap';
+import { cutBgm } from "../reactivity/music"
 
 const refAssassinate = ref<any>(null);
 let isDev = import.meta.env.DEV ? true : false;
@@ -77,6 +78,7 @@ onMounted(() => {
 		opacity: 1,
 		duration: 0.5,
 	})
+	cutBgm("play", Room.value.currentRound);
 })
 </script>
 

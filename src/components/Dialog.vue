@@ -65,7 +65,7 @@
     margin-left: calc(-40/200*var(--height)*2048/1080);
     left: 50vw;
     .content{
-      font-size: calc(45/1000*var(--height));
+      font-size: calc(40/1000*var(--height));
       color: #B6AB97;
       text-align: center;
       z-index: 9999;

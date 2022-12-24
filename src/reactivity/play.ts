@@ -1,5 +1,6 @@
 import { ref } from 'vue';
 import { players, Room, self } from './game';
+
 import {
 	BeginGameResponse,
 	EndGameResponse,
@@ -16,6 +17,8 @@ import {
 import router from '../router';
 import { showDialog } from './dialog';
 import { chatInit } from './chat';
+import { cut } from 'clipboard';
+import { cutBgm } from './music';
 
 export const fairyChoosing = ref(false);
 
@@ -41,6 +44,7 @@ export function beginGame(res : BeginGameResponse){
 }
 
 export function endGame(res : EndGameResponse){
+	cutBgm("wait", 0);
 	Room.value.playing=false;
 	Room.value.taskResult=[];
 	self.value.isFairy=false;

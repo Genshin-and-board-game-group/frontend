@@ -52,7 +52,7 @@ let successNumber = computed(()=>{
 	return x;
 })
 
-let canSelect = computed(()=>{return self.value.leader && !fairyChoosing.value && successNumber.value<3});
+let canSelect = computed(()=>{return self.value.leader && !Room.value.isVoting && !fairyChoosing.value && successNumber.value<3});
 let canChoose = computed(()=>{return self.value.isFairy && fairyChoosing.value && successNumber.value<3});
 //console.log(canSelect,self.value.leader,fairyChoosing.value,successNumber.value);
 //console.log(canChoose,self.value.isFairy,fairyChoosing.value,successNumber.value);
@@ -141,6 +141,7 @@ let List = computed(()=>{
 				width: calc(3/100*var(--width));
 			}
 			.player-hint{
+				top: calc(3/1000*var(--width));
 				position: relative;
 				font-size: calc(10/1000*var(--width));
 				// left: 0px;
