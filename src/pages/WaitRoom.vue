@@ -27,9 +27,10 @@
 	import { computed } from "@vue/reactivity";
 	import { leave } from '../reactivity/leaveRoom';
 	import { start } from "../reactivity/startGame";
-	import { ref } from "vue";
+	import { onMounted, ref } from "vue";
 	import Rule from "../components/Rule.vue";
 	import Clipboard from 'clipboard';
+	import { gsap } from 'gsap';
 
 	const number = Room.value.roomNumber;
 	const canBegin = computed(()=>players.value.length >= 5);
@@ -38,6 +39,14 @@
 	function copyRoomNumber() {
 	Clipboard.copy(number);
 	};
+	onMounted(() => {
+		gsap.fromTo(".waitroom", {
+			opacity: 0,
+		}, {
+			opacity: 1,
+			duration: 0.5,
+		})
+	})
 
 </script>
 

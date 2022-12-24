@@ -11,9 +11,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { Ref, ref } from 'vue';
 import Btn from './Btn.vue';
 import Intro from './Intro.vue';
+import { gsap } from 'gsap';
 
 var arr = ref([
     { name: "MERLIN"},
@@ -27,29 +28,57 @@ var arr = ref([
     { name: "FAIRY"},
 ]);
 
+var page: Ref<boolean> = ref(false);
+var pageNum: Ref<number> = ref(1);
+
+function pageComplete() {
+    page.value = false;
+}
+
 const leftPage = () => {
-    // if (ch1.value === "MORDRED") {
-    //     ch1.value = "MERLIN";
-    //     ch2.value = "PERCIVAL";
-    //     ch3.value = "ASSASSIN";
-    // }
-    // else if (ch1.value === "LOYALIST") {
-    //     ch1.value = "MORDRED";
-    //     ch2.value = "OBERON";
-    //     ch3.value = "MORGANA";
-    // }
+    if(page.value == false) {
+        if(pageNum.value == 3) {
+            page.value = true;
+            pageNum.value--;
+            gsap.to(".item", {
+                left: "-102.62%",
+                duration: 0.5,
+                onComplete: pageComplete
+            })
+        }
+        else if(pageNum.value == 2) {
+            page.value = true;
+            pageNum.value--;
+            gsap.to(".item", {
+                left: "0%",
+                duration: 0.5,
+                onComplete: pageComplete
+            })
+        }
+    }
+    
 };
 const rightPage = () => {
-    // if (ch1.value === "MERLIN") {
-    //     ch1.value = "MORDRED";
-    //     ch2.value = "OBERON";
-    //     ch3.value = "MORGANA";
-    // }
-    // else if (ch1.value === "MORDRED") {
-    //     ch1.value = "LOYALIST";
-    //     ch2.value = "MINIONS";
-    //     ch3.value = "FAIRY";
-    // }
+    if(page.value == false) {
+        if(pageNum.value == 1) {
+            page.value = true;
+            pageNum.value++;
+            gsap.to(".item", {
+                left: "-102.62%",
+                duration: 0.5,
+                onComplete: pageComplete
+            })
+        }
+        else if(pageNum.value == 2) {
+            page.value = true;
+            pageNum.value++;
+            gsap.to(".item", {
+                left: "-205.25%",
+                duration: 0.5,
+                onComplete: pageComplete
+            })
+        }
+    }
 };
 </script>
 
@@ -87,9 +116,8 @@ const rightPage = () => {
     }
     .item {
         position: relative;
-        // width: calc(18/100*var(--width));
-        // height: calc(80/100*var(--height));
-        // border: 2px solid blue;
+        // left: -102.62%;
+        // left: -205.25%;
         display: inline-block;
         margin-inline: calc(4/100*var(--width));
         white-space: normal;

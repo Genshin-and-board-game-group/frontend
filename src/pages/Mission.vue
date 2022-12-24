@@ -1,7 +1,13 @@
 <template>
 	<div class="mission">
 		<img :src="`/assets/img/play/play_bg.png`" class="mission_bg"/>
-		<div class="mission_picture"></div>
+		<div class="mission_picture">
+			<img :src="`/assets/img/mission/1.jpg`" v-if="Room.currentRound == 0" class="picture"/>
+			<img :src="`/assets/img/mission/2.jpg`" v-if="Room.currentRound == 1" class="picture"/>
+			<img :src="`/assets/img/mission/3.jpg`" v-if="Room.currentRound == 2" class="picture"/>
+			<img :src="`/assets/img/mission/4.jpg`" v-if="Room.currentRound == 3" class="picture"/>
+			<img :src="`/assets/img/mission/5.jpg`" v-if="Room.currentRound == 4" class="picture"/>
+		</div>
 		<div class="mission_voters">
 			<div v-for="item in List" class="mission_voter">
 				<Avatar v-if="item.index===self.index" class="myavatar" :character="item.avatar?item.avatar:'empty'"></Avatar>
@@ -113,6 +119,9 @@ function voteMission(res : boolean){
 		width: calc(40/100*var(--width));
 		bottom: calc(20/100*var(--height));
 		border: 3px solid rgba($color: #BBBBBB, $alpha: 0.35);
+		.picture{
+			width: 100%;
+		}
 	}
 	.mission_text{
 		position: relative;
