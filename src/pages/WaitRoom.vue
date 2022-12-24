@@ -15,7 +15,7 @@
 			<Btn id="waitroom_btn_rule" class="waitroom_btn" @click="refRule.showRule()" type="Rule" content="游戏规则" />
 		</div>
 		<Btn class="waitroom_btn_return" @click="leave()" type="x" img="/assets/img/waitroom_btn_return.png" />
-		<Rule content="游戏规则" ref="refRule" />
+		<Rule ref="refRule" />
 		<RoomPlayerList class="list" :playerList="players"></RoomPlayerList>
 	</div>
 </template>
