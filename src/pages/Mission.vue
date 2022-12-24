@@ -43,6 +43,7 @@ import GenshinBtn from '../components/GenshinBtn.vue';
 import { players, Room, self } from '../reactivity/game';
 import { socket } from '../socket';
 import { gsap } from 'gsap';
+import { cutBgm } from '../reactivity/music';
 
 const textNum: Ref<number> = ref(0);
 
@@ -59,6 +60,7 @@ onMounted(() => {
 		width: 0,
 		duration: 30,
 	})
+	cutBgm("mission", Room.value.currentRound);
 })
 const missions = [
 	["穿越烟帷与暗林", "「烟香纱帷一朝落，世间不复你与我。」", "须弥城坐落在雨林之间，被古树与水泽环绕。", 
