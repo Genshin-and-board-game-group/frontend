@@ -141,6 +141,7 @@ let List = computed(()=>{
 				width: calc(3/100*var(--width));
 			}
 			.player-hint{
+				top: calc(3/1000*var(--width));
 				position: relative;
 				font-size: calc(10/1000*var(--width));
 				// left: 0px;
