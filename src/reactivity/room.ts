@@ -31,6 +31,50 @@ export function skipin() {
 		duration: 0.5,
 		ease: "none",
 	});
+	gsap.fromTo(".text_roomcreate", {
+		//xPercent: 2,
+    	yPercent: 3,
+	  }, {
+		//xPercent: 3,
+    	yPercent: 8,
+		duration: 3,
+		repeat: -1,
+		ease: "power1.inOut",
+		yoyo: true,
+	});
+	gsap.fromTo(".text_roomjoin", {
+		//xPercent: 3,
+    	yPercent: 8,
+	  }, {
+		//xPercent: 4,
+    	yPercent: 4,
+		duration: 3,
+		repeat: -1,
+		ease: "power1.inOut",
+		yoyo: true,
+	});
+	gsap.fromTo(".text_introduction", {
+		//xPercent: 3,
+    	yPercent: 1,
+	  }, {
+		//xPercent: 5,
+    	yPercent: 8,
+		duration: 3,
+		repeat: -1,
+		ease: "power1.inOut",
+		yoyo: true,
+	});
+	gsap.fromTo(".text_recording", {
+		//xPercent: 3,
+    	yPercent: 5,
+	  }, {
+		//xPercent: 5,
+    	yPercent: 1,
+		duration: 3,
+		repeat: -1,
+		ease: "power1.inOut",
+		yoyo: true,
+	});
 }
 
 export function jump() {
