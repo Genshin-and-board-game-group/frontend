@@ -8,7 +8,7 @@ import { getDom } from "./reactivity/music";
 var bgm = ref<HTMLAudioElement>();
 var bgm_play: Ref<boolean> = ref(false);
 
-onMounted(() => { getDom(bgm); bgm.value?.pause(); })
+onMounted(() => { getDom(bgm, bgm_play); bgm.value?.pause(); })
 
 function bgm_change() {
   if(bgm_play.value == true) {
